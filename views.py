@@ -9,6 +9,8 @@ def register(request):
         if form.is_valid():
             form.save()
             return render(request,"mysite/confirmation.html")
+        else:
+            return render(request, "invalid")
     else:
         form= UserRegistrationForm()
         return render(request,"mysite/register.html", {'forms':form})
